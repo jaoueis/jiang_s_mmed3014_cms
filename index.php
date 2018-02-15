@@ -1,18 +1,15 @@
 <?php
-require_once('admin/phpscripts/config.php');
-
-if (isset($_GET['filter'])) {
-    $tbl       = "tbl_movies";
-    $tbl2      = "tbl_genre";
-    $tbl3      = "tbl_mov_genre";
-    $col       = "movies_id";
-    $col2      = "genre_id";
-    $col3      = "genre_name";
-    $filter    = "action";
-    $getMovies = filterResults($tbl, $tbl2, $tbl3, $col, $col2, $col3, $filter);
-} else {
-    $tbl       = "tbl_movies";
-    $getMovies = getAll($tbl);
+require_once('phpscripts/config.php');
+$ipAddress = $_SERVER['REMOTE_ADDR'];
+if (isset($_POST['submit'])) {
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+    if ($username !== "" && $password !== "") {
+        $result  = logIn($username, $password, $ipAddress);
+        $message = $result;
+    } else {
+        $message = "Please fill out the required field";
+    }
 }
 ?>
 
@@ -20,27 +17,24 @@ if (isset($_GET['filter'])) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Welcome to the Finest Selection of Blue-rays</title>
+<title>Document</title>
 </head>
 <body>
-<?php
-include('includes/nav.html');
 
-if (!is_string($getMovies)) {
-    while ($row = mysqli_fetch_array($getMovies)) {
-        echo "<img src=\"images/{$row['movies_cover']}\" alt=\"{$row['movies_title']}\">
-            <h2>{$row['movies_title']}</h2>
-            <p>{$row['movies_year']}</p>
-            <a href=\"details.php?id={$row['movies_id']}\">More Details</a>";
-    }
-} else {
-    echo "<p class=\"error\">{$getMovies}</p>";
-}
+<?php if (!empty($message)) {
+    echo $message;
+} ?>
+<form action="index.php" method="post">
+    <label for="username">Username:</label>
+    <input type="text" name="username">
 
-include('includes/footer.html');
-?>
+    <label for="password">Password:</label>
+    <input type="password" name="password">
+
+    <input type="submit" name="submit" value="show me the money">
+</form>
+
 </body>
 </html>
