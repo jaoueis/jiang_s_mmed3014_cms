@@ -9,4 +9,6 @@ $connect = mysqli_connect($host, $user, $password, $database, $port);
 
 if ($mysqli->connect_error) {
     die('Error : (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
+} else {
+    echo "successfully";
 }

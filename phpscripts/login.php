@@ -13,7 +13,6 @@ function logIn($username, $password, $ipAddress)
         $id                    = $finduser['user_id'];
         $_SESSION['user_id']   = $id;
         $_SESSION['user_name'] = $finduser['user_fname'];
-
         if (mysqli_query($connect, $loginstring)) {
             $update      = "UPDATE tbl_user SET user_ip='{$ipAddress}' WHERE user_id={$id}";
             $updateQuery = mysqli_query($connect, $update);
@@ -25,5 +24,5 @@ function logIn($username, $password, $ipAddress)
         return $message;
     }
 
-    mysqli_close($link);
+    mysqli_close($connect);
 }
