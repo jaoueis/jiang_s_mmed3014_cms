@@ -3,7 +3,6 @@ require_once('phpscripts/config.php');
 confirmLogin();
 
 date_default_timezone_set('America/Toronto');
-$currentTime = date("H:i:s");
 
 $midnight = "00:00:00";
 $dawn     = "06:00:00";
