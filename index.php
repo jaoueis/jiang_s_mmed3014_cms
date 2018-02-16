@@ -1,11 +1,16 @@
 <?php
 require_once('phpscripts/config.php');
-$ipAddress = $_SERVER['REMOTE_ADDR'];
+
+date_default_timezone_set('America/Toronto');
+
+$ipAddress   = $_SERVER['REMOTE_ADDR'];
+$currentDate = date("Y-m-d H:i:s");
+
 if (isset($_POST['submit'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
     if ($username !== "" && $password !== "") {
-        $result  = logIn($username, $password, $ipAddress);
+        $result  = logIn($username, $password, $ipAddress, $currentDate);
         $message = $result;
     } else {
         $message = "Please fill out the required field";

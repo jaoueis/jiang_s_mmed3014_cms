@@ -13,5 +13,7 @@ confirmLogin();
 </head>
 <body>
 <?php echo "Welcome" . " " . $_SESSION['user_name']; ?>
+<br>
+<?php echo "Your last login was at " . $_SESSION['user_date']; ?>
 </body>
 </html>
