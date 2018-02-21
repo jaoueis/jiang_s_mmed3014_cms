@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: db_users
 -- ------------------------------------------------------
--- Server version	5.6.35
+-- Server version	5.5.5-10.1.26-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,6 +29,7 @@ CREATE TABLE `tbl_user` (
   `user_pass` varchar(250) NOT NULL,
   `user_email` varchar(250) NOT NULL,
   `user_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_level` int(11) NOT NULL,
   `user_ip` varchar(50) NOT NULL DEFAULT 'no',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -40,7 +41,7 @@ CREATE TABLE `tbl_user` (
 
 LOCK TABLES `tbl_user` WRITE;
 /*!40000 ALTER TABLE `tbl_user` DISABLE KEYS */;
-INSERT INTO `tbl_user` VALUES (1,'Shan','jiang','123456','jiang_shan@live.com','2018-02-09 22:37:04','::1');
+INSERT INTO `tbl_user` VALUES (1,'Shan','sjiang','123456','jiang_shan@live.com','2018-02-21 18:21:02',0,'::1');
 /*!40000 ALTER TABLE `tbl_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-15 15:39:38
+-- Dump completed on 2018-02-21 13:24:51
