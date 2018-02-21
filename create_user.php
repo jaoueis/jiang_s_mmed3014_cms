@@ -56,7 +56,10 @@ if (isset($_POST['submit'])) {
             <div class="input-wrap">
                 <label for="">Password</label>
                 <br>
-                <input type="text" name="password">
+                <input type="text" name="password" class="pasInput">
+                <span class="genPasClick">Generate password</span>
+                <span class="genPasField"></span>
+                <!--reference: https://hugh.blog/2012/04/23/simple-way-to-generate-a-random-password-in-php/-->
             </div>
             <div class="input-wrap">
                 <label for="">Email</label>
@@ -74,6 +77,7 @@ if (isset($_POST['submit'])) {
         </form>
     </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/gen_pas.js"></script>
 </body>
 </html>

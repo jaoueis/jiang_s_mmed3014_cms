@@ -153,3 +153,13 @@ input[type="submit" i
     height: auto;
     padding: 20px 10px;
 }
+
+.genPasClick {
+    color: black;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.genPasClick:hover {
+    text-decoration: underline;
+}
