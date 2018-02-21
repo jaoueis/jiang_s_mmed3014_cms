@@ -71,18 +71,32 @@ body {
     font-size: 12px;
 }
 
-input[type="submit" i] {
-    -webkit-appearance: none;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 16px;
-    color: white;
-    display: block;
-    margin: 0 auto;
-    width: 100px;
-    height: 30px;
-    background: #333333;
-    border: none;
+input[type="submit" i
+
+]
+{
+    -webkit-appearance: none
+;
+    cursor: pointer
+;
+    font-size: 16px
+;
+    line-height: 16px
+;
+    color: white
+;
+    display: block
+;
+    margin: 0 auto
+;
+    width: 100px
+;
+    height: 30px
+;
+    background: #333333
+;
+    border: none
+;
 }
 
 .info-wrap {
@@ -109,7 +123,7 @@ input[type="submit" i] {
     height: 14px;
 }
 
-.header-buttons-wrap a{
+.header-buttons-wrap a {
     color: white;
     font-size: 14px;
     line-height: 14px;
@@ -118,6 +132,24 @@ input[type="submit" i] {
     text-decoration: none;
 }
 
-.header-buttons-wrap a:hover{
+.header-buttons-wrap a:hover {
     text-decoration: underline;
+}
+
+.main-wrap h2 {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.create-submit {
+    margin: 0 !important;
+}
+
+.input-wrap {
+    margin-bottom: 15px;
+}
+
+.info-wrap.create-user {
+    height: auto;
+    padding: 20px 10px;
 }

@@ -1,6 +1,5 @@
 <?php
-function logIn($username, $password, $ipAddress, $currentDate)
-{
+function logIn($username, $password, $ipAddress, $currentDate) {
     require_once('connection.php');
 
     $username    = mysqli_real_escape_string($connect, $username);

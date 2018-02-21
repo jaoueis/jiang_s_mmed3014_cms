@@ -28,6 +28,7 @@ $sunset   = "18:00:00";
     </div>
 </div>
 <div class="main-wrap">
+    <h2>Welcome</h2>
     <div class="info-wrap">
         <span class="welcome">
             <?php
