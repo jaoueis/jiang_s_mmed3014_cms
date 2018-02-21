@@ -4,7 +4,7 @@ confirmLogin();
 
 date_default_timezone_set('America/Toronto');
 
-$midnight = "00:00:00";
+$midnight = "24:00:00";
 $dawn     = "06:00:00";
 $noon     = "12:00:00";
 $sunset   = "18:00:00";
