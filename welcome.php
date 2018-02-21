@@ -21,6 +21,12 @@ $sunset   = "18:00:00";
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<div class="main-header-wrap">
+    <div class="header-buttons-wrap">
+        <a href="create_user.php">Sign up</a>
+        <a href="phpscripts/caller.php?caller_id=loggingout">Log out</a>
+    </div>
+</div>
 <div class="main-wrap">
     <div class="info-wrap">
         <span class="welcome">
@@ -36,7 +42,7 @@ $sunset   = "18:00:00";
             }
             ?>
         </span>
-        <br>
+        <br><br>
         <span class="lastLogin"><?php echo "Your last login was at " . $_SESSION['user_date']; ?></span>
     </div>
 </div>
