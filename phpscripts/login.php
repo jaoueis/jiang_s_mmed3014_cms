@@ -2,8 +2,14 @@
 function logIn($username, $password, $ipAddress, $currentDate) {
     require_once('connection.php');
 
-    $username    = mysqli_real_escape_string($connect, $username);
-    $password    = md5(mysqli_real_escape_string($connect, $password));
+    $username = mysqli_real_escape_string($connect, $username);
+
+    if ($username === "admin") {
+        $password = mysqli_real_escape_string($connect, $password);
+    } else {
+        $password = md5(mysqli_real_escape_string($connect, $password));
+    }
+
     $loginstring = "SELECT * FROM tbl_user WHERE user_name='{$username}' AND user_pass='{$password}'";
     $user_set    = mysqli_query($connect, $loginstring);
 

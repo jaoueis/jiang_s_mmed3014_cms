@@ -2,8 +2,10 @@ $(document).ready(function () {
     $('.genPasClick').click(function () {
         $.ajax({
             type   : 'POST',
-            url    : '../phpscripts/gen_pas.php',
+            url    : 'phpscripts/gen_pas.php', //Path may need to be changed based on localhost browse route
             success: function (data) {
+                var msg = 'Please make sure the generated password is safely stored in somewhere.';
+                alert(msg);
                 $('.pasInput').val(data);
             }
         });
