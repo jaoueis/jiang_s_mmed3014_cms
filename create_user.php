@@ -59,7 +59,6 @@ if (isset($_POST['submit'])) {
                 <input type="text" name="password" class="pasInput">
                 <span class="genPasClick">Generate password</span>
                 <span class="genPasField"></span>
-                <!--reference: https://hugh.blog/2012/04/23/simple-way-to-generate-a-random-password-in-php/-->
             </div>
             <div class="input-wrap">
                 <label for="">Email</label>

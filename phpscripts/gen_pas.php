@@ -5,3 +5,5 @@
 }
 
 generatePas();
+
+//reference: https://hugh.blog/2012/04/23/simple-way-to-generate-a-random-password-in-php/
