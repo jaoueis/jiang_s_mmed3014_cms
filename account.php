@@ -18,9 +18,9 @@ confirmLogin();
 <div class="main-wrap">
     <h2>Account</h2>
     <div class="info-wrap">
-        <a href="edit.php" class="account-anchor">Edit account information</a>
+        <a href="edit_user.php" class="account-anchor">Edit account information</a>
         <br><br>
-        <a href="delete.php" class="account-anchor">Terminate account</a>
+        <a href="delete_user.php" class="account-anchor">Terminate account</a>
     </div>
 </div>
 
