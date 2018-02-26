@@ -29,13 +29,7 @@ if (isset($_POST['submit'])) {
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
-<div class="main-header-wrap">
-    <div class="header-buttons-wrap">
-        <a href="create_user.php">Sign up</a>
-        <a href="phpscripts/caller.php?caller_id=loggingout">Log out</a>
-    </div>
-</div>
+<?php include('header.html'); ?>
 <div class="main-wrap">
     <h2>Create user</h2>
     <?php if (!empty($message)) {
