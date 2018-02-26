@@ -73,6 +73,9 @@ body {
 
 input[type="submit" i] {
     -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
     cursor: pointer;
     font-size: 16px;
     line-height: 16px;
