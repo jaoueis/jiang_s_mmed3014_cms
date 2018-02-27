@@ -24,7 +24,11 @@ function logIn($username, $password, $ipAddress, $currentDate) {
             $update      = "UPDATE tbl_user SET user_ip='{$ipAddress}', user_date='{$currentDate}' WHERE user_id={$id}";
             $updateQuery = mysqli_query($connect, $update);
         }
-        redirect_to("welcome.php");
+        if ($fetchResult['user_ip'] === "no") {
+            redirect_to("edit_user.php");
+        } else {
+            redirect_to("welcome.php");
+        }
     } else {
         $message = "Cannot find user!";
 
