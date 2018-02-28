@@ -38,26 +38,26 @@ if (isset($_POST['submit'])) {
     <div class="info-wrap create-user">
         <form action="create_user.php" method="post">
             <div class="input-wrap">
-                <label for="">First Name</label>
+                <label for="fname">First Name</label>
                 <br>
-                <input type="text" name="fname">
+                <input type="text" name="fname" id="fname">
             </div>
             <div class="input-wrap">
-                <label for="">Username</label>
+                <label for="username">Username</label>
                 <br>
-                <input type="text" name="username">
+                <input type="text" name="username" id="username">
             </div>
             <div class="input-wrap">
-                <label for="">Password</label>
+                <label for="password">Password</label>
                 <br>
-                <input type="text" name="password" class="pasInput">
+                <input type="text" name="password" class="pasInput" id="password">
                 <span class="genPasClick">Generate password</span>
                 <span class="genPasField"></span>
             </div>
             <div class="input-wrap">
-                <label for="">Email</label>
+                <label for="email">Email</label>
                 <br>
-                <input type="email" name="email">
+                <input type="email" name="email" id="email">
             </div>
             <div class="input-wrap">
                 <select name="lvllist">
