@@ -21,16 +21,15 @@ function logIn($username, $password, $ipAddress, $currentDate) {
         $_SESSION['user_id']   = $id;
         $_SESSION['user_name'] = $fetchResult['user_fname'];
 
-        if (mysqli_query($connect, $loginstring)) {
-            $update      = "UPDATE tbl_user SET user_ip='{$ipAddress}', user_date='{$currentDate}' WHERE user_id={$id}";
-            $updateQuery = mysqli_query($connect, $update);
-        }
-
         $s         = 86400;//24 hrs to seconds
         $time_diff = time() - strtotime($fetchResult['user_date']);
 
         if ($fetchResult['user_ip'] === "no") {
             if ($time_diff < $s) {
+                if (mysqli_query($connect, $loginstring)) {
+                    $update      = "UPDATE tbl_user SET user_ip='{$ipAddress}', user_date='{$currentDate}' WHERE user_id={$id}";
+                    $updateQuery = mysqli_query($connect, $update);
+                }
                 redirect_to("edit_user.php");
             } else {
                 $suspendedMsg = "Your account has been suspended because you have not login the system within 24 hours.";
@@ -38,6 +37,10 @@ function logIn($username, $password, $ipAddress, $currentDate) {
                 return $suspendedMsg;
             }
         } else {
+            if (mysqli_query($connect, $loginstring)) {
+                $update      = "UPDATE tbl_user SET user_ip='{$ipAddress}', user_date='{$currentDate}' WHERE user_id={$id}";
+                $updateQuery = mysqli_query($connect, $update);
+            }
             redirect_to("welcome.php");
         }
     } else {
