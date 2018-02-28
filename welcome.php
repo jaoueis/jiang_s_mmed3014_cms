@@ -21,12 +21,7 @@ $sunset   = "18:00:00";
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<div class="main-header-wrap">
-    <div class="header-buttons-wrap">
-        <a href="create_user.php">Sign up</a>
-        <a href="phpscripts/caller.php?caller_id=loggingout">Log out</a>
-    </div>
-</div>
+<?php include('header.html'); ?>
 <div class="main-wrap">
     <h2>Welcome</h2>
     <div class="info-wrap">
@@ -47,5 +42,6 @@ $sunset   = "18:00:00";
         <span class="lastLogin"><?php echo "Your last login was at " . $_SESSION['user_date']; ?></span>
     </div>
 </div>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
 </html>

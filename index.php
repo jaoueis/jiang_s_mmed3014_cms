@@ -31,6 +31,9 @@ if (isset($_POST['submit'])) {
 <body>
 <div class="main-wrap">
     <div class="msg-wrap">
+        <?php if (!empty($suspendedMsg)) {
+            echo $suspendedMsg;
+        } ?>
         <?php if (!empty($message)) {
             echo $message;
         } ?>

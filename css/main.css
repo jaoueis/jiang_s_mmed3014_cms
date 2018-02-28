@@ -73,6 +73,9 @@ body {
 
 input[type="submit" i] {
     -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
     cursor: pointer;
     font-size: 16px;
     line-height: 16px;
@@ -149,4 +152,46 @@ input[type="submit" i] {
 
 .genPasClick:hover {
     text-decoration: underline;
+}
+
+.account-wrap {
+    float: left;
+    color: white;
+    font-size: 14px;
+    height: 14px;
+}
+
+.account-wrap a {
+    color: white;
+    font-size: 14px;
+    line-height: 14px;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 3px;
+}
+
+.account-wrap a:hover {
+    text-decoration: underline;
+}
+
+.account-anchor {
+    color: black;
+    text-decoration: none;
+}
+
+.account-anchor:hover {
+    text-decoration: underline;
+}
+
+.delete-button {
+    font-size: 16px;
+    line-height: 16px;
+    color: white;
+    display: block;
+    width: 60px;
+    height: 30px;
+    background: #333333;
+    border: none;
+    text-decoration: none;
+    padding: 7px 7px;
 }
