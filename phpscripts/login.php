@@ -16,37 +16,41 @@ function logIn($username, $password, $ipAddress, $currentDate) {
     $fetchResult           = mysqli_fetch_array($user_set, MYSQLI_ASSOC);
     $_SESSION['user_date'] = $fetchResult['user_date'];
 
-    if (mysqli_num_rows($user_set)) {
-        $id                    = $fetchResult['user_id'];
-        $_SESSION['user_id']   = $id;
-        $_SESSION['user_name'] = $fetchResult['user_fname'];
+    if ($fetchResult != null) {
+        if (mysqli_num_rows($user_set)) {
+            $id                    = $fetchResult['user_id'];
+            $_SESSION['user_id']   = $id;
+            $_SESSION['user_name'] = $fetchResult['user_fname'];
 
-        $s         = 86400;//24 hrs to seconds
-        $time_diff = time() - strtotime($fetchResult['user_date']);
+            $s         = 86400;//24 hrs to seconds
+            $time_diff = time() - strtotime($fetchResult['user_date']);
 
-        if ($fetchResult['user_ip'] == "no") {
-            if ($time_diff < $s) {
+            if ($fetchResult['user_ip'] == "no") {
+                if ($time_diff < $s) {
+                    if (mysqli_query($connect, $loginstring)) {
+                        $update      = "UPDATE tbl_user SET user_ip='{$ipAddress}', user_date='{$currentDate}' WHERE user_id={$id}";
+                        $updateQuery = mysqli_query($connect, $update);
+                    }
+                    redirect_to("edit_user.php");
+                } else {
+                    $suspendedMsg = "Your account has been suspended because you have not login the system within 24 hours.";
+
+                    return $suspendedMsg;
+                }
+            } else {
                 if (mysqli_query($connect, $loginstring)) {
                     $update      = "UPDATE tbl_user SET user_ip='{$ipAddress}', user_date='{$currentDate}' WHERE user_id={$id}";
                     $updateQuery = mysqli_query($connect, $update);
                 }
-                redirect_to("edit_user.php");
-            } else {
-                $suspendedMsg = "Your account has been suspended because you have not login the system within 24 hours.";
-
-                return $suspendedMsg;
+                redirect_to("welcome.php");
             }
         } else {
-            if (mysqli_query($connect, $loginstring)) {
-                $update      = "UPDATE tbl_user SET user_ip='{$ipAddress}', user_date='{$currentDate}' WHERE user_id={$id}";
-                $updateQuery = mysqli_query($connect, $update);
-            }
-            redirect_to("welcome.php");
+            $message = "Cannot find user!";
+
+            return $message;
         }
     } else {
-        $message = "Cannot find user!";
 
-        return $message;
     }
 
     mysqli_close($connect);
