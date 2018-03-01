@@ -4,7 +4,7 @@ function logIn($username, $password, $ipAddress, $currentDate) {
 
     $username = mysqli_real_escape_string($connect, $username);
 
-    if ($username === "admin") {
+    if ($username == "admin") {
         $password = mysqli_real_escape_string($connect, $password);
     } else {
         $password = md5(mysqli_real_escape_string($connect, $password));
@@ -24,7 +24,7 @@ function logIn($username, $password, $ipAddress, $currentDate) {
         $s         = 86400;//24 hrs to seconds
         $time_diff = time() - strtotime($fetchResult['user_date']);
 
-        if ($fetchResult['user_ip'] === "no") {
+        if ($fetchResult['user_ip'] == "no") {
             if ($time_diff < $s) {
                 if (mysqli_query($connect, $loginstring)) {
                     $update      = "UPDATE tbl_user SET user_ip='{$ipAddress}', user_date='{$currentDate}' WHERE user_id={$id}";

@@ -72,5 +72,6 @@ if (isset($_POST['submit'])) {
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/gen_pas.js"></script>
+<script type="text/javascript" src="js/24hrs_alert.js"></script>
 </body>
 </html>

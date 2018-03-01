@@ -4,7 +4,7 @@ function createUser($fname, $username, $password, $email, $lvllist) {
 
     $unencryptedPas = $password;
     $password       = md5($password);
-    $userstring     = "INSERT INTO tbl_user VALUES(NULL, '{$fname}', '{$username}', '{$password}', '{$email}', NULL, '{$lvllist}', 'no')";
+    $userstring     = "INSERT INTO tbl_user VALUES(NULL, '{$fname}', '{$username}', '{$password}', '{$email}', NULL, '{$lvllist}', 'no', 0)";
     $userquery      = mysqli_query($connect, $userstring);
 
     if ($userquery) {
