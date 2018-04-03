@@ -30,3 +30,19 @@ function getSingle($tbl, $col, $id) {
 
     mysqli_close($connect);
 }
+
+function filterResults($mov, $gen, $mov_gen, $gen_id, $gen_name, $filter) {
+    include('connection.php');
+
+    $filterQuery = "SELECT * FROM {$mov}, {$gen} WHERE {$mov}.{$mov_gen} = {$gen}.{$gen_id} AND {$gen}.{$gen_name}='{$filter}'";
+    $runQuery    = mysqli_query($connect, $filterQuery);
+
+    if ($runQuery) {
+        return $runQuery;
+    } else {
+        $error = "There was a problem accessing this information. Sorry about your luck ;)";
+
+        return $error;
+    }
+    mysqli_close($link);
+}
