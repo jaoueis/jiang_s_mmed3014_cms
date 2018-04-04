@@ -4,10 +4,11 @@ confirmLogin();
 
 date_default_timezone_set('America/Toronto');
 
-$midnight = "24:00:00";
-$dawn     = "06:00:00";
-$noon     = "12:00:00";
-$sunset   = "18:00:00";
+$midnight      = "00:00:00";
+$dawn          = "06:00:00";
+$noon          = "12:00:00";
+$sunset        = "18:00:00";
+$midnightToday = "23:59:59";
 ?>
 
 <!doctype html>
@@ -33,7 +34,7 @@ $sunset   = "18:00:00";
                 echo "Hello" . " " . $_SESSION['user_name'] . "! Hope you have a great morning!";
             } else if (time() >= strtotime($noon) && time() <= strtotime($sunset)) {
                 echo "Good afternoon" . " " . $_SESSION['user_name'] . "! What you up to?";
-            } else if (time() >= strtotime($sunset) && time() <= strtotime($midnight)) {
+            } else if (time() >= strtotime($sunset) && time() <= strtotime($midnightToday)) {
                 echo "Hi" . " " . $_SESSION['user_name'] . "! Hope you have a great evening!";
             }
             ?>
