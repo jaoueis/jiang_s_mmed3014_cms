@@ -45,7 +45,11 @@ if (isset($_GET['filter'])) {
         <div class="col-12">
             <h1>Movies</h1>
             <?php
-            echo "<h2>{$filter}</h2>";
+            if (!empty($filter)) {
+                echo "<h2>{$filter}</h2>";
+            } else {
+                echo "<h2>All Movies</h2>";
+            }
             ?>
         </div>
     </div>
