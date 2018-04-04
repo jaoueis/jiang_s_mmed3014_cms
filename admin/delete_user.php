@@ -1,5 +1,6 @@
 <?php
 require_once('phpscripts/config.php');
+confirmLogin();
 $tbl  = 'tbl_user';
 $user = getAll($tbl);
 ?>

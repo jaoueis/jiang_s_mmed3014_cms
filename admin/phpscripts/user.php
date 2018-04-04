@@ -41,7 +41,7 @@ function deleteUser($id) {
     $delstring = "DELETE FROM tbl_user WHERE user_id={$id}";
     $delquery  = mysqli_query($connect, $delstring);
     if ($delquery) {
-        redirect_to("../index.php");
+        redirect_to("../delete_user.php");
     } else {
         $message = "Something went wrong!";
         return $message;
