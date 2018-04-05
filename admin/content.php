@@ -9,18 +9,18 @@ confirmLogin();
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Admin User Control | Movies</title>
+<title>Admin Content | Movies</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <?php include('header.html'); ?>
 <div class="main-wrap">
-    <h2>User Control</h2>
+    <h2>Content</h2>
     <div class="info-wrap">
-        <a href="edit_user.php" class="account-anchor">Edit user information</a>
+        <a href="#" class="account-anchor">Edit content</a>
         <br><br>
-        <a href="delete_user.php" class="account-anchor">Delete user</a>
+        <a href="add_content.php" class="account-anchor">Add content</a>
     </div>
 </div>
 
