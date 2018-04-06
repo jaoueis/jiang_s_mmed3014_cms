@@ -5,16 +5,15 @@ $tbl      = "tbl_genre";
 $genQuery = getAll($tbl);
 
 if (isset($_POST['submit'])) {
-    $cover     = $_FILES['movImage'];
-    $title     = $_POST['movTitle'];
-    $year      = $_POST['movYear'];
-    $runtime   = $_POST['movRuntime'];
-    $storyline = $_POST['movStoryline'];
-    $trailer   = $_POST['movTrailer'];
-    $release   = $_POST['movRelease'];
+    $title     = $_POST['mov_name'];
+    $year      = $_POST['mov_year'];
+    $rating    = $_POST['mov_rating'];
     $genre     = $_POST['genList'];
+    $storyline = $_POST['mov_desc'];
+    $cover     = $_FILES['mov_pic'];
+    $trailer   = $_POST['mov_trailer'];
 
-    $result  = addMovie($cover, $title, $year, $runtime, $storyline, $trailer, $release, $genre);
+    $result  = addMovie($title, $year, $rating, $genre, $storyline, $cover, $trailer);
     $message = $result;
 };
 ?>
@@ -39,33 +38,30 @@ if (isset($_POST['submit'])) {
         } ?>
         <form action="add_content.php" method="post" enctype="multipart/form-data">
             <div class="input-wrap">
-                <label for="movImage">Cover Image</label><br>
-                <input type="file" name="movImage" id="movImage">
+                <label for="mov_name">Movie name</label><br>
+                <input type="text" name="mov_name" id="mov_name">
             </div>
             <div class="input-wrap">
-                <label for="movTitle">Movie Title</label><br>
-                <input type="text" name="movTitle" id="movTitle">
+                <label for="mov_year">Movie year</label><br>
+                <input type="text" name="mov_year" id="mov_year">
             </div>
             <div class="input-wrap">
-                <label for="movYear">Movie Year</label><br>
-                <input type="text" name="movYear" id="movYear">
+                <label for="mov_rating">Movie rating</label><br>
+                <input type="text" name="mov_rating" id="mov_rating">
             </div>
             <div class="input-wrap">
-                <label for="movRuntime">Movie Runtime</label><br>
-                <input type="text" name="movRuntime" id="movRuntime">
+                <label for="mov_desc">Movie storyline</label><br>
+                <input type="text" name="mov_desc" id="mov_desc">
             </div>
             <div class="input-wrap">
-                <label for="movStoryline">Movie Storyline</label><br>
-                <input type="text" name="movStoryline" id="movStoryline">
+                <label for="mov_pic">Cover image</label><br>
+                <input type="file" name="mov_pic" id="mov_pic">
             </div>
             <div class="input-wrap">
-                <label for="movTrailer">Movie Trailer</label><br>
-                <input type="text" name="movTrailer" id="movTrailer">
+                <label for="mov_trailer">Movie trailer</label><br>
+                <input type="text" name="mov_trailer" id="mov_trailer">
             </div>
-            <div class="input-wrap">
-                <label for="movRelease">Movie Release</label><br>
-                <input type="text" name="movRelease" id="movRelease">
-            </div>
+
             <div class="input-wrap">
                 <select name="genList">
                     <option value="">Please select a movie genre...</option>
