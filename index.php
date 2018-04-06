@@ -24,6 +24,7 @@ if (isset($_GET['filter'])) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Oswald" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="css/main.css">
 <title>Movies</title>
@@ -65,7 +66,7 @@ if (isset($_GET['filter'])) {
             <?php
             if (!is_string($getMovies)) {
                 while ($row = mysqli_fetch_array($getMovies)) {
-                    echo "<div class='col-4 row movie-piece'><div class='col-6'><img src='images/{$row['mov_pic']}' alt='{$row['mov_name']}' class='movie-poster'></div><div class='col-6'><h3>{$row['mov_name']}</h3><a href='#'>More details</a></div></div>";
+                    echo "<div class='col-4 row movie-piece'><div class='col-12'><div class='movie-poster' style='background: url(\"images/{$row['mov_pic']}\")'></div></div><div class='col-12'><a href='details.php?id={$row['mov_id']}'><h3>{$row['mov_name']}</h3></a></div></div>";
                 }
             } else {
                 echo "<p class='error'>{$getMovies}</p>";

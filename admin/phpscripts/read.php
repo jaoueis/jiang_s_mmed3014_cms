@@ -11,7 +11,6 @@ function getAll($tbl) {
 
         return $error;
     }
-
     mysqli_close($connect);
 }
 
@@ -27,7 +26,6 @@ function getSingle($tbl, $col, $id) {
 
         return $error;
     }
-
     mysqli_close($connect);
 }
 
@@ -45,4 +43,20 @@ function filterResults($mov, $gen, $mov_gen, $gen_id, $gen_name, $filter) {
         return $error;
     }
     mysqli_close($link);
+}
+
+function getGenre($genre, $tbl, $genreID, $movGen, $col, $id) {
+    include('connection.php');
+    $genName  = "genre_name";
+    $queryAll = "SELECT {$genre}.$genName FROM {$genre} JOIN {$tbl} WHERE {$tbl}.{$col}={$id} AND {$genre}.{$genreID}={$tbl}.{$movGen}";
+    $runAll   = mysqli_query($connect, $queryAll);
+
+    if ($runAll) {
+        return $runAll;
+    } else {
+        $error = "There was a problem accessing this information. Sorry about your luck ;)";
+
+        return $error;
+    }
+    mysqli_close($connect);
 }
