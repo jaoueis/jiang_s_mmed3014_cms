@@ -17,7 +17,6 @@ if (isset($_POST['submit'])) {
     $message = $result;
 };
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>

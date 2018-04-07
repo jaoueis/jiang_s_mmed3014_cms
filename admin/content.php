@@ -18,7 +18,7 @@ confirmLogin();
 <div class="main-wrap">
     <h2>Content</h2>
     <div class="info-wrap">
-        <a href="#" class="account-anchor">Edit content</a>
+        <a href="edit_content_list.php" class="account-anchor">Edit content</a>
         <br><br>
         <a href="add_content.php" class="account-anchor">Add content</a>
     </div>

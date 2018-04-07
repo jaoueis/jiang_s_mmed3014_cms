@@ -63,7 +63,7 @@ li a {
 }
 
 .main-content {
-    background: #323232;
+    background: white;
     padding: 120px 0;
 }
 
@@ -74,6 +74,7 @@ li a {
 .movie-piece h3 {
     text-align: center;
     margin-top: 15px;
+    color: #323232;
 }
 
 .movie-piece h3:hover {
@@ -86,20 +87,28 @@ li a {
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
 }
 
 .details h3 {
     font-size: 1.5rem;
-    color: white;
+    color: #323232;
     font-style: italic;
 }
 
 .details p {
     font-size: 1rem;
+    color: #323232;
+}
+
+.mov-cover-img {
+    border-right: solid 1px #cccccc;
 }
 
 .mov-cover-img img {
     width: 320px;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
 }
 
 .trailer {
@@ -109,6 +118,6 @@ li a {
 iframe {
     margin: 0 auto;
     display: block;
-    width: 960px;
-    height: 540px;
+    width: 1110px;
+    height: 624px;
 }

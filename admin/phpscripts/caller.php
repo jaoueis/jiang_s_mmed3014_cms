@@ -8,6 +8,6 @@ if (isset($_GET['caller_id'])) {
         $id = $_GET['id'];
         deleteUser($id);
     } else {
-        echo "Caller is was passed incorrectly.";
+        echo "Caller was passed incorrectly.";
     }
 }
