@@ -28,26 +28,34 @@ function addMovie($title, $year, $rating, $genre, $storyline, $cover, $trailer) 
 function editMovie($movieName, $movieYear, $movieRating, $movieStoryline, $moviePoster, $movieTrailer, $movieGenre, $id) {
     include('connection.php');
     $movieStoryline = mysqli_real_escape_string($connect, $movieStoryline);
-    if ($moviePoster['type'] == "image/jpg" || $moviePoster['type'] == "image/jpeg") {
+
+    if ($moviePoster['size'] == 0) {
+        $updatestring = "UPDATE tbl_movies SET mov_name='{$movieName}', mov_year='{$movieYear}', mov_rating='{$movieRating}', mov_genre='{$movieGenre}', mov_desc='{$movieStoryline}', mov_trailer='{$movieTrailer}' WHERE mov_id={$id}";
+        $updatequery  = mysqli_query($connect, $updatestring);
+        if ($updatequery) {
+            redirect_to("edit_content_list.php");
+        } else {
+            $message = "Failed to import data into database without poster ;(";
+            return $message;
+        }
+    } else if ($moviePoster['type'] == "image/jpg" || $moviePoster['type'] == "image/jpeg") {
         $targetPath = "../images/{$moviePoster['name']}";
         $filename   = $moviePoster['name'];
         if (move_uploaded_file($moviePoster['tmp_name'], $targetPath)) {
             $updatestring = "UPDATE tbl_movies SET mov_name='{$movieName}', mov_year='{$movieYear}', mov_rating='{$movieRating}', mov_genre='{$movieGenre}', mov_desc='{$movieStoryline}', mov_pic='{$filename}', mov_trailer='{$movieTrailer}' WHERE mov_id={$id}";
             $updatequery  = mysqli_query($connect, $updatestring);
-            var_dump($updatestring);
-            exit();
             if ($updatequery) {
                 redirect_to("edit_content_list.php");
             } else {
-                $message = "Wrong! Wrong! Wrong!";
+                $message = "Failed to import data into database ;(";
                 return $message;
             }
         } else {
-            $message = "123";
+            $message = "Poster file was not uploaded to destination ;(";
             return $message;
         }
     } else {
-        $message = "1234";
+        $message = "The file type is not supported ;(";
         return $message;
     }
     mysqli_close($connect);

@@ -2,7 +2,7 @@
 require_once('phpscripts/config.php');
 confirmLogin();
 
-if (isset($_POST['update'], $_GET['id'])) {
+if (isset($_POST['update'])) {
     $movieName      = $_POST['mov_name'];
     $movieYear      = $_POST['mov_year'];
     $movieRating    = $_POST['mov_rating'];
@@ -10,12 +10,10 @@ if (isset($_POST['update'], $_GET['id'])) {
     $moviePoster    = $_FILES['mov_pic'];
     $movieTrailer   = $_POST['mov_trailer'];
     $movieGenre     = $_POST['mov_genre'];
-    $id             = $_GET['id'];
+    $id             = $_POST['id'];
 
     $result  = editMovie($movieName, $movieYear, $movieRating, $movieStoryline, $moviePoster, $movieTrailer, $movieGenre, $id);
     $message = $result;
-    var_dump($id);
-    exit();
 }
 
 $tbl      = "tbl_movies";
@@ -49,7 +47,6 @@ if (isset($_GET['id'])) {
         <?php if (!empty($message)) {
             echo $message;
         } ?>
-
         <?php
         while ($row = mysqli_fetch_array($genQuery)) {
             echo "<a href='edit_content_list.php?id={$row['mov_id']}'><h3>{$row['mov_name']}</h3></a>";
@@ -65,6 +62,7 @@ if (isset($_GET['id'])) {
         }
         ?>
         <form action="edit_content_list.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
             <div class="input-wrap">
                 <label for="mov_name">Movie name</label><br>
                 <input type="text" name="mov_name" id="mov_name" value="<?php echo $row['mov_name'] ?>">
