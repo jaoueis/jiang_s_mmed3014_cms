@@ -60,3 +60,16 @@ function editMovie($movieName, $movieYear, $movieRating, $movieStoryline, $movie
     }
     mysqli_close($connect);
 }
+
+function deleteMovie($id) {
+    include('connection.php');
+    $delstring = "DELETE FROM tbl_movies WHERE mov_id={$id}";
+    $delquery  = mysqli_query($connect, $delstring);
+    if ($delquery) {
+        redirect_to("../edit_content_list.php");
+    } else {
+        $message = "Cannot delete from database ;(";
+        return $message;
+    }
+    mysqli_close($connect);
+}

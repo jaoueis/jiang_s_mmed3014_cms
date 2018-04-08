@@ -65,19 +65,19 @@ if (isset($_GET['id'])) {
             <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
             <div class="input-wrap">
                 <label for="mov_name">Movie name</label><br>
-                <input type="text" name="mov_name" id="mov_name" value="<?php echo $row['mov_name'] ?>">
+                <input type="text" name="mov_name" id="mov_name" value="<?php echo $row['mov_name'] ?>" required>
             </div>
             <div class="input-wrap">
                 <label for="mov_year">Movie year</label><br>
-                <input type="text" name="mov_year" id="mov_year" value="<?php echo $row['mov_year'] ?>">
+                <input type="text" name="mov_year" id="mov_year" value="<?php echo $row['mov_year'] ?>" required>
             </div>
             <div class="input-wrap">
                 <label for="mov_rating">Movie rating</label><br>
-                <input type="text" name="mov_rating" id="mov_rating" value="<?php echo $row['mov_rating'] ?>">
+                <input type="text" name="mov_rating" id="mov_rating" value="<?php echo $row['mov_rating'] ?>" required>
             </div>
             <div class="input-wrap">
                 <label for="mov_desc">Movie storyline</label><br>
-                <input type="text" name="mov_desc" id="mov_desc" value="<?php echo $row['mov_desc'] ?>">
+                <input type="text" name="mov_desc" id="mov_desc" value="<?php echo $row['mov_desc'] ?>" required>
             </div>
             <div class="input-wrap">
                 <label for="mov_pic">Cover image</label><br>
@@ -85,11 +85,11 @@ if (isset($_GET['id'])) {
             </div>
             <div class="input-wrap">
                 <label for="mov_trailer">Movie trailer</label><br>
-                <input type="text" name="mov_trailer" id="mov_trailer" value="<?php echo $row['mov_trailer'] ?>">
+                <input type="text" name="mov_trailer" id="mov_trailer" value="<?php echo $row['mov_trailer'] ?>" required>
             </div>
 
             <div class="input-wrap">
-                <select name="mov_genre">
+                <select name="mov_genre" required>
                     <option value="">Please select a movie genre...</option>
                     <?php while ($row2 = mysqli_fetch_array($getGenre)) {
                         echo "<option value='{$row2['genre_id']}'>{$row2['genre_name']}</option>";
@@ -97,7 +97,14 @@ if (isset($_GET['id'])) {
                     ?>
                 </select>
             </div>
+            <span class="field-required">*Cover image field is NOT required.</span>
             <input type="submit" name="update" value="Update" class="create-submit">
+            <a href="<?php if (!empty($id)) {
+                echo "phpscripts/caller.php?caller_id=deleteMovie&id={$id}";
+            } else {
+                echo "#";
+            }
+            ?>" class="delete-button delete-movie" onclick="return confirm('Are you sure to delete <?php echo $row['mov_name'] ?>?')">Delete movie</a>
         </form>
         <div class="form-image">
             <img src="../images/<?php echo $row['mov_pic'] ?>" alt="<?php echo $row['mov_name'] ?>">

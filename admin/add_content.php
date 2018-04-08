@@ -38,31 +38,31 @@ if (isset($_POST['submit'])) {
         <form action="add_content.php" method="post" enctype="multipart/form-data">
             <div class="input-wrap">
                 <label for="mov_name">Movie name</label><br>
-                <input type="text" name="mov_name" id="mov_name">
+                <input type="text" name="mov_name" id="mov_name" required>
             </div>
             <div class="input-wrap">
                 <label for="mov_year">Movie year</label><br>
-                <input type="text" name="mov_year" id="mov_year">
+                <input type="text" name="mov_year" id="mov_year" required>
             </div>
             <div class="input-wrap">
                 <label for="mov_rating">Movie rating</label><br>
-                <input type="text" name="mov_rating" id="mov_rating">
+                <input type="text" name="mov_rating" id="mov_rating" required>
             </div>
             <div class="input-wrap">
                 <label for="mov_desc">Movie storyline</label><br>
-                <input type="text" name="mov_desc" id="mov_desc">
+                <input type="text" name="mov_desc" id="mov_desc" required>
             </div>
             <div class="input-wrap">
                 <label for="mov_pic">Cover image</label><br>
-                <input type="file" name="mov_pic" id="mov_pic">
+                <input type="file" name="mov_pic" id="mov_pic" required>
             </div>
             <div class="input-wrap">
                 <label for="mov_trailer">Movie trailer</label><br>
-                <input type="text" name="mov_trailer" id="mov_trailer">
+                <input type="text" name="mov_trailer" id="mov_trailer" required>
             </div>
 
             <div class="input-wrap">
-                <select name="genList">
+                <select name="genList" required>
                     <option value="">Please select a movie genre...</option>
                     <?php while ($row = mysqli_fetch_array($genQuery)) {
                         echo "<option value='{$row['genre_id']}'>{$row['genre_name']}</option>";
@@ -70,6 +70,7 @@ if (isset($_POST['submit'])) {
                     ?>
                 </select>
             </div>
+            <span class="field-required">*Every field is required.</span>
             <input type="submit" name="submit" value="Add" class="create-submit">
         </form>
     </div>

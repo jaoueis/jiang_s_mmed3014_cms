@@ -117,7 +117,7 @@ input[type="submit" i] {
 .main-header-wrap {
     width: 100%;
     height: 30px;
-    background: black;
+    background: #323232;
     padding: 4px 15px;
 }
 
@@ -152,6 +152,16 @@ input[type="submit" i] {
     margin-bottom: 15px;
 }
 
+.input-wrap:last-child {
+    margin-bottom: 0;
+}
+
+.info-wrap.create-user span {
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
 .info-wrap.create-user {
     height: auto;
     padding: 20px 10px;
@@ -165,8 +175,17 @@ input[type="submit" i] {
     float: right;
 }
 
+.list a {
+    color: #323232;
+    text-decoration: none;
+}
+
+.list a:hover {
+    text-decoration: underline;
+}
+
 .genPasClick {
-    color: black;
+    color: #323232;
     font-size: 12px;
     text-decoration: none;
     cursor: pointer;
@@ -198,7 +217,7 @@ input[type="submit" i] {
 }
 
 .account-anchor {
-    color: black;
+    color: #323232;
     text-decoration: none;
 }
 
@@ -217,4 +236,11 @@ input[type="submit" i] {
     border: none;
     text-decoration: none;
     padding: 7px 7px;
+    text-align: center;
+}
+
+.delete-button.delete-movie {
+    width: 120px;
+    margin-top: 15px;
+    background: #960017;
 }
